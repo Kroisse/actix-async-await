@@ -1,0 +1,28 @@
+[package]
+name = "actix-async-await"
+version = "0.1.0"
+edition = "2018"
+authors = ["Eunchong Yu <kroisse@gmail.com>"]
+categories = ["asynchronous"]
+description = "Experimental async/await support for Actix"
+repository = "https://github.com/Kroisse/actix-async-await"
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+
+[lib]
+name = "actix_async_await"
+
+[dependencies]
+actix = "0.7"
+
+[dependencies.futures-core-preview]
+default-features = false
+version = "0.3.0-alpha.6"
+
+[dependencies.futures-util-preview]
+default-features = false
+features = ["tokio-compat"]
+version = "0.3.0-alpha.6"
+
+[dev-dependencies]
+tokio = "0.1"
