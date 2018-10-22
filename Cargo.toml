@@ -1,6 +1,6 @@
 [package]
 name = "actix-async-await"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2018"
 authors = ["Eunchong Yu <kroisse@gmail.com>"]
 categories = ["asynchronous"]
@@ -17,12 +17,12 @@ actix = "0.7"
 
 [dependencies.futures-core-preview]
 default-features = false
-version = "0.3.0-alpha.6"
+version = "0.3.0-alpha.9"
 
 [dependencies.futures-util-preview]
 default-features = false
 features = ["tokio-compat"]
-version = "0.3.0-alpha.6"
+version = "0.3.0-alpha.9"
 
 [dev-dependencies]
 tokio = "0.1"

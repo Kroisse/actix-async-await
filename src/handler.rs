@@ -1,7 +1,8 @@
-use std::future::{Future, LocalFutureObj};
+use std::future::Future;
 
 use ::actix::dev::{MessageResponse, ResponseChannel};
 use ::actix::prelude::*;
+use futures_core::future::LocalFutureObj;
 use futures_util::future::FutureExt;
 
 use crate::prelude::*;

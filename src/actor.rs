@@ -7,8 +7,6 @@ use futures_util::{
     try_stream::TryStreamExt,
 };
 
-use crate::constants::SPAWNER;
-
 pub trait AsyncContextExt<A>: AsyncContext<A> where A: Actor<Context = Self> {
     /// This method register stream to an actor context and allows
     /// to handle [Stream] in similar way as normal actor messages.
@@ -17,7 +15,7 @@ pub trait AsyncContextExt<A>: AsyncContext<A> where A: Actor<Context = Self> {
         S: TryStream + Unpin + 'static,
         A: StreamHandler<S::Ok, S::Error>,
     {
-        self.add_stream(fut.compat(SPAWNER))
+        self.add_stream(fut.compat())
     }
 
     fn add_message_stream_03<S>(&mut self, fut: S)
@@ -26,7 +24,7 @@ pub trait AsyncContextExt<A>: AsyncContext<A> where A: Actor<Context = Self> {
         S::Item: Message,
         A: Handler<S::Item>,
     {
-        self.add_message_stream(fut.map(Ok).compat(SPAWNER))
+        self.add_message_stream(fut.map(Ok).compat())
     }
 }
 
