@@ -6,7 +6,6 @@ mod macros;
 
 mod actor;
 mod arbiter;
-mod constants;
 mod handler;
 
 pub mod prelude;
