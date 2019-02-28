@@ -1,6 +1,5 @@
 // async fn
-#![feature(async_await, await_macro, futures_api, pin)]
-#![feature(uniform_paths)]
+#![feature(async_await, await_macro, futures_api)]
 
 #[macro_use]
 mod macros;
