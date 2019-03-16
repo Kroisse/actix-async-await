@@ -17,7 +17,9 @@ where
     F: Future<Output = T> + 'static,
 {
     fn from(fut: F) -> Self {
-        ResponseStdFuture { inner: LocalFutureObj::new(fut.boxed()) }
+        ResponseStdFuture {
+            inner: LocalFutureObj::new(fut.boxed()),
+        }
     }
 }
 
@@ -30,20 +32,22 @@ where
     T: 'static,
 {
     fn handle<R: ResponseChannel<M>>(self, _: &mut A::Context, tx: Option<R>) {
-        Arbiter::spawn_async(async move {
+        let fut = async move {
             let res = await!(self.inner);
             if let Some(tx) = tx {
                 tx.send(res);
             }
-        }.boxed())
+        };
+        Arbiter::spawn_async(fut.boxed())
     }
 }
-
 
 #[cfg(test)]
 mod test {
     use std::rc::Rc;
+
     use futures_util::compat::*;
+
     use super::*;
 
     struct Truck;
@@ -63,9 +67,7 @@ mod test {
 
         fn handle(&mut self, msg: Parcel, _: &mut Self::Context) -> Self::Result {
             let result: Rc<str> = format!("[{}]", msg.0 * 2).into();
-            ResponseStdFuture::from(async move {
-                String::from(&*result)
-            })
+            ResponseStdFuture::from(async move { String::from(&*result) })
         }
     }
 

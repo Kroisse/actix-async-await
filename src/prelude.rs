@@ -1,4 +1,2 @@
-pub use crate::{
-    actor::AsyncContextExt,
-    arbiter::ArbiterExt,
-};
+pub use crate::{actor::AsyncContextExt, arbiter::ArbiterExt};
+
