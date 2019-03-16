@@ -1,6 +1,6 @@
 [package]
 name = "actix-async-await"
-version = "0.3.0-alpha.1"
+version = "0.3.0"
 edition = "2018"
 authors = ["Eunchong Yu <kroisse@gmail.com>"]
 keywords = ["actix", "futures", "actor", "tokio", "async"]
