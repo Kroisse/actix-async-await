@@ -1,7 +1,11 @@
-actix-async-await
-=================
+# actix-async-await [![crates.io][b/crates/i]][b/crates] [![docs.rs][b/docs/i]][b/docs]
 
 Provides some [experimental async/await][1] support for [Actix][].
+
+[b/crates]: https://crates.io/crates/actix-async-await
+[b/crates/i]: https://meritbadge.herokuapp.com/actix-async-await
+[b/docs]: https://docs.rs/actix-async-await
+[b/docs/i]: https://docs.rs/actix-async-await/badge.svg
 
 [1]: https://areweasyncyet.rs/
 [Actix]: https://actix.rs/
