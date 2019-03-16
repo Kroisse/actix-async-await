@@ -13,8 +13,14 @@ license = "MIT OR Apache-2.0"
 [lib]
 name = "actix_async_await"
 
-[dependencies]
-actix = "0.7"
+[dependencies.actix]
+version = "0.7"
+default-features = false
+
+[dependencies.actix-web]
+version = "0.7"
+optional = true
+default-features = false
 
 [dependencies.futures-core-preview]
 version = "0.3.0-alpha.13"
