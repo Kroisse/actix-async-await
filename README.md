@@ -21,6 +21,6 @@ This project is licensed under either of
 
 at your option.
 
-Modules in `src/web/` are derived from [actix-web][], so licenses of that project also affects on these modules.
+Modules in `src/web/` are derived from [actix-web][], so the licenses of that project also affects on these modules.
 
 [actix-web]: https://github.com/actix/actix-web
