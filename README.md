@@ -1,7 +1,12 @@
 actix-async-await
 =================
 
+Provides some [experimental async/await][1] support for [Actix][].
+
+[1]: https://areweasyncyet.rs/
+[Actix]: https://actix.rs/
+
 Requirements
 ------------
 
- - `rustc 1.31.0-nightly (155510e37 2018-10-20)` or higher
+ - Nightly compiler corresponding to Rust 1.35 or above
