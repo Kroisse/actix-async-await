@@ -3,6 +3,7 @@ name = "actix-async-await"
 version = "0.2.0"
 edition = "2018"
 authors = ["Eunchong Yu <kroisse@gmail.com>"]
+keywords = ["actix", "futures", "actor", "tokio", "async"]
 categories = ["asynchronous"]
 description = "Experimental async/await support for Actix"
 repository = "https://github.com/Kroisse/actix-async-await"
