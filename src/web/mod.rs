@@ -14,13 +14,14 @@ pub trait RouteExt<S> {
         R::Error: Into<Error>,
         T: FromRequest<S> + 'static;
 
-    fn with_std_async_config<T, F, R>(&mut self, handler: F, cfg: impl FnOnce(&mut T::Config))
+    fn with_std_async_config<T, F, R, C>(&mut self, handler: F, cfg: C)
     where
         F: WithAsyncFactory<T, S, R>,
         R: TryFuture + 'static,
         R::Ok: Responder + 'static,
         R::Error: Into<Error>,
-        T: FromRequest<S> + 'static;
+        T: FromRequest<S> + 'static,
+        C: FnOnce(&mut T::Config);
 }
 
 impl<S: 'static> RouteExt<S> for Route<S> {
@@ -35,13 +36,14 @@ impl<S: 'static> RouteExt<S> for Route<S> {
         self.h(handler.create())
     }
 
-    fn with_std_async_config<T, F, R>(&mut self, handler: F, cfg: impl FnOnce(&mut T::Config))
+    fn with_std_async_config<T, F, R, C>(&mut self, handler: F, cfg: C)
     where
         F: WithAsyncFactory<T, S, R>,
         R: TryFuture + 'static,
         R::Ok: Responder + 'static,
         R::Error: Into<Error>,
         T: FromRequest<S> + 'static,
+        C: FnOnce(&mut T::Config),
     {
         let mut extractor_cfg = <T::Config as Default>::default();
         cfg(&mut extractor_cfg);
